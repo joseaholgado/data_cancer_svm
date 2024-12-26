@@ -5,7 +5,7 @@ import numpy as np
 from sklearn.feature_extraction import DictVectorizer
 
 # Cargar el modelo y el DictVectorizer
-with open('cyptocurrency_model.pkl', 'rb') as f:
+with open('cryptocurrency_model.pkl', 'rb') as f:
     dv, model = pickle.load(f)
 
 # Título de la aplicación
