@@ -14,20 +14,20 @@ st.title("Predicción de árbol de decisiones de Crypotmonedas")
 # Formulario para introducir datos de la criptomoneda
 st.header("Introduce los datos de la Crypotmonedas:")
 
-h1 = st.text_input("Cambio en 1 hora", value="0.0")
-h24 = st.selectbox("Cambio en 24 hora", value="0.0")
-d7 = st.selectbox("Cambio en 7 días",value="0.0")
-d60 = st.selectbox("Cambio en 60 días",value="0.0")
-d90 = st.selectbox("Cambio en 90 días", value="0.0")
-ytd = st.number_input("Año hasta la fecha",value="0.0")
-market_cap = st.selectbox("Capitalización bursátil", value="0.0")
-volume_h24 = st.selectbox("Volumen en 24 horas", value="0.0")
-volume_change_h24 = st.selectbox("Cambio de volumen en 24 horas", value="0.0")
-volume_change_d30 = st.selectbox("Cambio de volumen en 30 días", value="0.0")
-circulating  = st.selectbox("Circulando", value="0.0")
-total_supply = st.selectbox("Suplemento total",value="0.0")
-max_supply = st.selectbox("Máximo suplemento", value="0.0")
-num_market_pairs  = st.selectbox("número de pares de mercado", value="0.0")
+h1 = st.text_input("Cambio en 1 hora", value=0.0)
+h24 = st.selectbox("Cambio en 24 hora", value=0.0)
+d7 = st.selectbox("Cambio en 7 días",value=0.0)
+d60 = st.selectbox("Cambio en 60 días",value=0.0)
+d90 = st.selectbox("Cambio en 90 días", value=0.0)
+ytd = st.number_input("Año hasta la fecha",value=0.0)
+market_cap = st.selectbox("Capitalización bursátil", value=0.0)
+volume_h24 = st.selectbox("Volumen en 24 horas", value=0.0)
+volume_change_h24 = st.selectbox("Cambio de volumen en 24 horas", value=0.0)
+volume_change_d30 = st.selectbox("Cambio de volumen en 30 días", value=0.0)
+circulating  = st.selectbox("Circulando", value=0.0)
+total_supply = st.selectbox("Suplemento total",value=0.0)
+max_supply = st.selectbox("Máximo suplemento", value=0.0)
+num_market_pairs  = st.selectbox("número de pares de mercado", value=0.0)
 
 # Botón de predicción
 if st.button("Predecir"):
@@ -55,9 +55,12 @@ if st.button("Predecir"):
     # Realizar la predicción
     y_pred_proba = model.predict_proba(X_crypto)[0][1]  # Probabilidad de churn
 
-    # Mostrar resultado
-    st.subheader("Resultado:")
+   # Mostrar resultado
+    st.subheader("Resultado de la Predicción:")
     if y_pred_proba > 0.5:
-        st.error(f"La criptomoneda tiene una alta probabilidad: {y_pred_proba:.2f}")
+        st.success(f"Se predice un **aumento** en el precio de la criptomoneda con una probabilidad de {y_pred_proba:.2f}")
     else:
-        st.success(f"La criptomoneda una baja probabilidad: {y_pred_proba:.2f}")
+        st.error(f"Se predice una **disminución** en el precio de la criptomoneda con una probabilidad de {y_pred_proba:.2f}")
+
+    # Visualización (opcional)
+    st.progress(y_pred_proba)
