@@ -7,14 +7,18 @@ model = joblib.load("decision_tree_model.pkl")
 scaler = joblib.load("scaler.pkl")
 
 # Configuración de la página
-st.set_page_config(page_title="Predicción con Árbol de Decisión", layout="centered")
+st.set_page_config(page_title="Predicción de Radius Mean", layout="centered")
 
-# Título
+# Título de la aplicación
 st.title("Predicción de Radius Mean")
-st.write("Proporciona los valores de las características para realizar una predicción.")
+st.write("""
+    Este proyecto utiliza un modelo de Árbol de Decisión para predecir el radio promedio (`radius_mean`) 
+    basado en características celulares. Introduce los valores en los campos correspondientes para obtener una predicción.
+""")
 
-# Crear entradas para las características
-feature_labels = [f"Característica {i+1}" for i in range(29)]
+# Crear entradas dinámicas para las características
+st.header("Introduce las características")
+feature_labels = [f"Característica {i+1}" for i in range(29)]  # Generar etiquetas
 input_values = []
 
 for label in feature_labels:
@@ -31,6 +35,9 @@ if st.button("Realizar Predicción"):
         # Realizar la predicción
         prediction = model.predict(scaled_input)
         # Mostrar el resultado
-        st.success(f"Predicción: {prediction[0]:.2f}")
+        st.success(f"Predicción de Radius Mean: {prediction[0]:.2f}")
     except Exception as e:
         st.error(f"Error en la predicción: {str(e)}")
+
+# Pie de página
+st.write("Desarrollado con ❤️ usando Streamlit.")
