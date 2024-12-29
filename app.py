@@ -13,10 +13,17 @@ scaler = joblib.load("svm_scaler.pkl")
 # Configuración de la página
 st.set_page_config(page_title="Predicción de Radius Mean", layout="centered")
 
-# Título de la aplicación
+# Título de la aplicación para decision tree
+# st.title("Predicción de Radius Mean")
+# st.write("""
+#    Este proyecto utiliza un modelo de Árbol de Decisión para predecir el radio promedio (`radius_mean`) 
+#    basado en características celulares. Introduce los valores en los campos correspondientes para obtener una predicción.
+# """)
+
+# Título de la aplicación para svm
 st.title("Predicción de Radius Mean")
 st.write("""
-    Este proyecto utiliza un modelo de Árbol de Decisión para predecir el radio promedio (`radius_mean`) 
+    Este proyecto utiliza un modelo de SVM para predecir el radio promedio (`radius_mean`) 
     basado en características celulares. Introduce los valores en los campos correspondientes para obtener una predicción.
 """)
 
@@ -58,6 +65,3 @@ if st.button("Realizar Predicción"):
         st.success(f"Predicción de Radius Mean: {prediction[0]:.2f}")
     except Exception as e:
         st.error(f"Error en la predicción: {str(e)}")
-
-# Pie de página
-st.write("Desarrollado con ❤️ usando Streamlit.")
