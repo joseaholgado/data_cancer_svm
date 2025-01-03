@@ -21,7 +21,7 @@ st.set_page_config(page_title="Predicción de SVM para Radius Mean", layout="cen
 # """)
 
 # Título de la aplicación para svm
-st.title("Predicción de Radius Mean")
+st.title("Predicción en SVM para Radius Mean")
 st.write("""
     Este proyecto utiliza un modelo de svm para predecir el radio promedio (`radius_mean`) 
     basado en características celulares. Introduce los valores en los campos correspondientes para obtener una predicción.
