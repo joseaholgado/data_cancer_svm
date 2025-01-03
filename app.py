@@ -11,7 +11,7 @@ model = joblib.load("svm_model.pkl")
 scaler = joblib.load("svm_scaler.pkl")
 
 # Configuración de la página
-st.set_page_config(page_title="Predicción de Radius Mean", layout="centered")
+st.set_page_config(page_title="Predicción de SVM para Radius Mean", layout="centered")
 
 # Título de la aplicación para decision tree
 # st.title("Predicción de Radius Mean")
@@ -23,7 +23,7 @@ st.set_page_config(page_title="Predicción de Radius Mean", layout="centered")
 # Título de la aplicación para svm
 st.title("Predicción de Radius Mean")
 st.write("""
-    Este proyecto utiliza un modelo de SVM para predecir el radio promedio (`radius_mean`) 
+    Este proyecto utiliza un modelo de svm para predecir el radio promedio (`radius_mean`) 
     basado en características celulares. Introduce los valores en los campos correspondientes para obtener una predicción.
 """)
 
